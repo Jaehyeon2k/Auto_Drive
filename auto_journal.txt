@@ -1,0 +1,10 @@
+1단계: 차선 인식 (Lane Detection)
+도로 영상에서 차선을 검출해서 화면에 표시
+OpenCV만 있으면 되고, 코드도 단순함
+
+2단계: 객체 인식 (Vehicle & Pedestrian Detection)
+다른 차량, 보행자, 신호등 같은 물체 인식
+딥러닝 모델 YOLO, MobileNet 등을 사용
+
+3단계: 시뮬레이터에서 자율주행 체험 (선택)
+Carla, Webots, Unity 같은 시뮬레이터에서 실습 가능
