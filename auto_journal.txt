@@ -1,10 +1,22 @@
-1단계: 차선 인식 (Lane Detection)
-도로 영상에서 차선을 검출해서 화면에 표시
-OpenCV만 있으면 되고, 코드도 단순함
+1단계: 차선 추출 (Lane Detection)
+Canny → ROI → HoughLines → 좌/우 차선 검출
 
-2단계: 객체 인식 (Vehicle & Pedestrian Detection)
-다른 차량, 보행자, 신호등 같은 물체 인식
-딥러닝 모델 YOLO, MobileNet 등을 사용
+중심선 계산, 위치 피드백
 
-3단계: 시뮬레이터에서 자율주행 체험 (선택)
-Carla, Webots, Unity 같은 시뮬레이터에서 실습 가능
+2단계: 차선 추적 (Lane Tracking)
+이전 프레임과 연결해서 선을 예측하고 보정
+
+흔들림 줄이기 (Kalman Filter, 이동 평균 등)
+
+3단계: 주행 궤적 예측 (Path Planning)
+차선의 곡률(curvature) 분석
+
+중앙선 연장해서 자동차가 가야 할 방향 결정
+
+4단계: 객체 인식 (Object Detection)
+전방 차량, 보행자, 신호등 등 인식 (YOLO, SSD 등 딥러닝)
+
+5단계: 경로 판단 / 제어 (Control)
+차가 오른쪽 치우쳤으면 왼쪽으로 조향
+
+중심선 기준 좌/우 회전 판단
